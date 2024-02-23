@@ -1,0 +1,58 @@
+import random
+import time
+
+
+def rolldie():
+  return random.randint(1,6)
+
+
+
+
+
+def play(R):
+  nameA=input("enter name of first player\n")
+  nameB=input("enter name of second player\n")
+  AWins=0
+  BWins=0
+  for i in range (1,R+1):
+    print()
+    print ("Its round ",i)
+    print("===============")
+    print()
+    print (nameA," it is your turn, press enter to roll the die")
+    input()
+    playerA=rolldie()
+    print ("rolling",end="")
+    time.sleep(1)
+    print (".",end="")
+    time.sleep(1)
+    print (".",end="")
+    time.sleep(1)
+    print(".")
+    print (nameA," you got", playerA)
+    time.sleep(1)
+    print(nameB,"it is your turn, press enter to roll the die")
+    input()
+    playerB=rolldie()
+    print ("rolling",end="")
+    time.sleep(1)
+    print (".",end="")
+    time.sleep(1)
+    print (".",end="")
+    time.sleep(1)
+    print(".")
+    print (nameB,"you got", playerB)
+    if playerA>playerB:
+      print(nameA," won round",i)
+      AWins+=1
+    elif playerA==playerB:
+      print ("round",i,"is a draw")
+    else:
+      print (nameB," won round",i)
+      BWins+=1
+  if AWins>BWins:
+    print (nameA," won this game because he won",AWins,"rounds out of",R)
+  elif AWins==BWins:
+    print ("the game ended as a draw")
+  else :
+    print (nameB," won this game because he won",BWins,"rounds out of",R)
